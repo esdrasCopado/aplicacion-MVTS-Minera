@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro de Material</title>
+    <link rel="stylesheet" href="css/styleRegistoMat.css">
+  <script>
+    function registrarMaterial() {
+      // Aquí puedes agregar la lógica para registrar el material en la base de datos
+      // Por ejemplo, puedes obtener los valores de los campos y enviarlos a través de una solicitud AJAX
+      
+      // Ejemplo de obtener los valores de los campos
+      const numeroViaje = document.getElementById('numeroViaje').value;
+      const tipoMaterial = document.getElementById('tipoMaterial').value;
+      const cantidad = document.getElementById('cantidad').value;
+
+      // Ejemplo de enviar los valores a través de una solicitud AJAX (usando fetch)
+      // Aquí deberías enviar estos datos al servidor para su procesamiento
+      fetch('/ruta_para_registro', {
+        method: 'POST',
+        body: JSON.stringify({ numeroViaje, tipoMaterial, cantidad }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Manejar la respuesta del servidor si es necesario
+        console.log('Respuesta del servidor:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+
+    function limpiarCampos() {
+      // Limpiar los valores de los campos del formulario
+      document.getElementById('numeroViaje').value = '';
+      var campoNumero = document.getElementById("cantidad");
+      campoNumero.setAttribute("type", "text");
+      campoNumero.value = "";
+
+    }
+  </script>
+  <script src="js/redireccion.js"></script>
+</head>
+<body>
+  <h1>Registro de Material</h1>
+  <form action="/RegistrarMaterial" method="post">
+
+
+    <label for="numeroViaje">Número de Viaje:</label>
+    <input type="text" id="numeroViaje" name="numeroViaje" required><br><br>
+    
+
+    <section>
+        <label for="Material">Seleccione Material:</label>
+        <select name="selectMaterial">
+          <option disabled selected>Seleccione Material</option>
+          <option data-material="cobre" value="cobre">Cobre</option>
+          <option data-material="plata" value="plata">plata</option>
+          <option data-material="oro" value="oro">oro</option>
+          <option data-material="hierro" value="hierro">hierro</option>
+          <option data-material="refacciones" value="refacciones">refacciones</option>
+          <option data-material="combustible" value="combustible">combustible</option>
+        </select>
+      </section>
+
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" name="cantidad" required><br><br>
+    
+
+    <button type="submit">Registrar</button>
+    <button type="button" onclick="limpiarCampos()">Limpiar</button>
+    <button type="button" onclick="redireccionCentral()">Cancelar</button>
+  </form>
+
+</body>
+</html>

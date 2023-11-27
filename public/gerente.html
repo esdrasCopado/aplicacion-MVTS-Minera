@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerente</title>
+    <link rel="stylesheet" href="css/styleCentral.css">
+    
+    <script src="js/mapa.js"></script>
+    <script src="js/redireccion.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- La API de Google Maps se cargará asíncronamente -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    
+        <h1>MVTS-Gerente</h1>
+    
+    
+    <div id="map">
+        <!-- Aquí puedes colocar tu mapa o contenido relacionado -->
+        <!-- Por ejemplo: un iframe de Google Maps -->
+        
+    </div>
+     <div id="imageOverlay"></div>
+    
+    <div class="buttonContainer">
+        <button onclick="redireccionCongestion()">Reporte congestiones</button>
+        <button id="botonReporteMaterial">Reporte material</button>
+        <button ondblclick="redireccionIndex()">Cerrrar sesion</button>
+    </div>
+    <script>
+        document.getElementById("botonReporteMaterial").addEventListener("click", function() {
+        window.location.href = "/mostrarReporte"; 
+    });
+    </script>
+</body>
+</html>

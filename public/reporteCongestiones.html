@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte de congestiones</title>
+
+  <script src="js/redireccion.js"></script>
+  <link rel="stylesheet" href="css/styleCentral.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Reporte Congestiones</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Número de Semáforo</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+      </tr>
+    </thead>
+    <tbody id="tablaSemaforos">
+      <!-- Aquí se llenarán dinámicamente los datos de los semáforos -->
+    </tbody>
+    
+  </table>
+  <button onclick="redireccionGerente()">Atras</button>
+  <script>
+    const semaphoresList = [
+  { numeroSemaforo: 1, fecha: '2023-11-26', hora: '08:00' },
+  { numeroSemaforo: 2, fecha: '2023-11-26', hora: '09:30' },
+  { numeroSemaforo: 1, fecha: '2023-11-26', hora: '14:50' },
+  { numeroSemaforo: 4, fecha: '2023-11-26', hora: '18:00' },
+  // ... más objetos de semáforos
+];
+
+const tablaSemaforos = document.getElementById('tablaSemaforos');
+
+// Recorre la lista de semáforos y agrega cada uno como una fila a la tabla
+semaphoresList.forEach(semaphore => {
+  const row = tablaSemaforos.insertRow();
+  const cellNumeroSemaforo = row.insertCell(0);
+  const cellFecha = row.insertCell(1);
+  const cellHora = row.insertCell(2);
+
+  cellNumeroSemaforo.textContent = semaphore.numeroSemaforo;
+  cellFecha.textContent = semaphore.fecha;
+  cellHora.textContent = semaphore.hora;
+});
+  </script>
+</body>
+</html>

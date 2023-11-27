@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+#map {
+    width: 600px;
+    height: 600px;
+    background-color: #ddd; /* Color de fondo del div para representar el mapa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.buttonContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+.buttonContainer button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#loginContainer label, #loginContainer input[type="text"], #loginContainer input[type="password"], #loginContainer input[type="submit"], #loginContainer input[type="button"] {
+    display: block;
+    margin-bottom: 10px;
+}
+#loginContainer input[type="submit"], #loginContainer input[type="button"],.buttonContainer button {
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#loginContainer input[type="submit"]:hover, #loginContainer input[type="button"]:hover,.buttonContainer button:hover {
+    background-color: #2980b9;
+}
